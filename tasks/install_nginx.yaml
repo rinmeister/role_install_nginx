@@ -26,7 +26,7 @@
   become: yes
   tags: install
 - name: start NGINX
-  shell: {{ item }}
+  shell: "{{ item }}"
   loop:
       - systemctl stop nginx.service
       - systemctl start nginx.service
