@@ -23,6 +23,8 @@
   vars:
       packages:
           - nginx
+  become: yes
+  tags: install
 - name: start NGINX
   command:
       argv:
