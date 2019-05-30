@@ -1,0 +1,32 @@
+---
+
+- name: update
+  apt:
+      update_cache: yes
+  become: yes
+  tags: update
+- name: upgrade
+  apt:
+      upgrade: yes
+  become: yes
+  tags: update
+- name: upgrade dist
+  apt:
+      upgrade: dist
+  become: yes
+  tags: update
+- name: use apt to install nginx
+  apt:
+      name: "{{ packages }}"
+      update_cache: yes
+      state: latest
+  vars:
+      packages:
+          - nginx
+- name: start NGINX
+  command:
+      argv:
+          - systemctl stop nginx.service
+          - systemctl start nginx.service
+          - systemctl enable nginx.service
+  become: yes
