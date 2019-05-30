@@ -26,9 +26,9 @@
   become: yes
   tags: install
 - name: start NGINX
-  command:
-      argv:
-          - systemctl stop nginx.service
-          - systemctl start nginx.service
-          - systemctl enable nginx.service
+  shell: {{ item }}
+  loop:
+      - systemctl stop nginx.service
+      - systemctl start nginx.service
+      - systemctl enable nginx.service
   become: yes
