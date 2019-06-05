@@ -1,0 +1,21 @@
+Install Nginx HTTP Server
+-------------------------
+
+The playbook runs the following tasks:
+
+To install Nginx HTTP, run the commands below…
+
+sudo apt update
+sudo apt install nginx
+
+After installing Nginx, the commands below can be used to stop, start and enable Nginx service to always start up with the server boots.
+
+`sudo systemctl stop nginx.service`
+
+`sudo systemctl start nginx.service`
+
+`sudo systemctl enable nginx.service`
+ 
+To test Nginx setup, open your browser and browse to the server hostname or IP address and you should see Nginx default test page as shown below.. When you see that, then Nginx is working as expected..
+
+http://localhost
